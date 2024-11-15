@@ -154,6 +154,32 @@
   }
 
 
+# Server action 
+
+- javascript or function basically, it runs on client side, so to make it run on server side, you have to use server action. 
+
+-  running functionn on server action, it increase security. like token , something like that. 
+
+- to get function running on server, we can use 'use server' on top of the class. 
+
+- to get value from user input, we use onChange() 
+
+- with server action, you dont have to use onChange () or onClick anymore. 
+
+-  with Server Action, we use # action = {} instead of onSubmit
+
+# input : 
+
+- server action take user input through name attribute 
+
+exammple : <input
+             type="text"
+             id = "customerName"  
+             name= "customerName">   //dak tam api bos yg 
+           </input>
+
+
+# revalidate tags : use for trigger our website to  real time updates and only can use on server actions 
 
 
 
