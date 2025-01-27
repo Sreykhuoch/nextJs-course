@@ -1,10 +1,7 @@
 import { handleCustomer } from "@/app/actions/customerAction";
 import React from "react";
 
-
 const FormCustomerComponent = () => {
-  
-
   //this is without customerAction
   // async function handleCustomer(customerInput) {
   //   "use server"; //so that  it will be execute on server side component
@@ -18,16 +15,14 @@ const FormCustomerComponent = () => {
 
   //   console.log("new customer : ", newCustomer);
 
-
-  //   //calling server for insert customer : 
+  //   //calling server for insert customer :
   //   await insertCustomerService(newCustomer);
 
-  //    //calling revalidate tags 
+  //    //calling revalidate tags
 
   //    revalidateTag('customer');
 
   // }
-
 
   return (
     <div>

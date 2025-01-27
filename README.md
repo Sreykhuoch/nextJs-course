@@ -1,14 +1,14 @@
-# create nextJs : npx create-next-app@latest [project-name]   /yarn create next-app
+# create nextJs : npx create-next-app@latest [project-name] /yarn create next-app
 
-- to run the application : npm run dev  / yarn run dev
+- to run the application : npm run dev / yarn run dev
 
 # route :
 
-    - layout : is the main entry of the application-> apply or share throughout  the application- simply takes all the children
+    - layout : is the main entry of the application-> apply or share throughout  the application - simply takes all the children
 
     - page.js : represent the home page of the application .
 
-    - global.css : apply style to the entire app
+    - global.css : apply style to the entire app.
 
     - name of the folder consider as a route
 
@@ -18,7 +18,7 @@
 
 # rendering :
 
-    - Next by default render as server component.
+    - by default next render as server component.
     . example : export default function Home()
 
     - if you want to render as client component , you have to define on the top of the class like :
@@ -58,7 +58,6 @@
     - route  handlers : can be nested inside the app directory,
                     but it cannot be a route.js file at the samme route segment levels as page.js
 
-
     - Supported Http method : GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS
 
     - if an unsupported is called, NextJs will return a 405 Method Not Allowed response
@@ -79,7 +78,7 @@
 
 - commannd : npx prisma migrate dev
 
-# to create table : we write in schema..prisma
+# to create table : we write in schema.prisma
 
 - example : model student {
   id Int @id @default(autoincrement())
@@ -129,57 +128,72 @@
 
 - revalidate : revalidate tag is used with Incremental Static Regeneration (ISR) to specify how often a page should be revalidated, ensuring that stale data is updated at the specified interval
 
-- to use fetch(), we use it with aysnc and await 
+- to use fetch(), we use it with aysnc and await
 
-   . aysnc : give promise to next  to wait (wait for api to query data)
-   . await : return the promise as array ojbect
-
+  . aysnc : give promise to next to wait (wait for api to query data)
+  . await : return the promise as array ojbect
 
 # src/services : ផ្ទុក code ដែល fetch data from api
 
-# async and await : is not yet supported in client component, only in server component 
+# async and await : is not yet supported in client component, only in server component
 
-#  catching : 
-    By default, NextJs will automatically cache our data. 
+# catching :
 
-# To get id from the input : 
+    By default, NextJs will automatically cache our data.
 
-  - we use parameter that called {params}
+# To get id from the input :
+
+- we use parameter that called {params}
 
 # to update when ever we change value or refresh, we use :
 
-  {
-    cache : "no-store",  : always get  a new data , clear cache
-    cache : "no-cache", : it check if it used to store
-  }
+{
+cache : "no-store", : always get a new data , clear cache
+cache : "no-cache", : it check if it's used to store
+}
 
+# Server action
 
-# Server action 
+- javascript or function basically, it runs on client side, so to make sure it run on server side, you have to use server action.
 
-- javascript or function basically, it runs on client side, so to make it run on server side, you have to use server action. 
+- running functionn on server action, it increase security. like token , something like that.
 
--  running functionn on server action, it increase security. like token , something like that. 
+- to get function running on server, we can use 'use server' on top of the class.
 
-- to get function running on server, we can use 'use server' on top of the class. 
+- to get value from user input, we use onChange()
 
-- to get value from user input, we use onChange() 
+- with server action, you dont have to use onChange () or onClick anymore.
 
-- with server action, you dont have to use onChange () or onClick anymore. 
+- with Server Action, we use # action = {} instead of onSubmit
 
--  with Server Action, we use # action = {} instead of onSubmit
+# input :
 
-# input : 
-
-- server action take user input through name attribute 
+- server action take user input through name attribute
 
 exammple : <input
              type="text"
              id = "customerName"  
-             name= "customerName">   //dak tam api bos yg 
-           </input>
+             name= "customerName"> //dak tam api bos yg
+</input>
 
+# revalidate tags : use for trigger our website to real time updates and only can use on server actions
 
-# revalidate tags : use for trigger our website to  real time updates and only can use on server actions 
+# action folder : typically contains function or logic directly tied to user interactions or triggering process.
 
+     Purpose:
+        -> Trigger API Calls: Call service functions or APIs when users interact with the app (e.g., clicking a button, submitting a form).
 
+        -> Handle User Interactions: Implement logic that processes user input or decisions.
+        -> Tie Logic to UI Components: Usually invoked in React components or pages to make the app interactive.
 
+# The services folder contains functions that encapsulate the business logic or API calls. These functions focus on the data layer and handle interactions with external systems, databases, or APIs.
+
+    Purpose:
+    -> Abstract API Logic: Write reusable and centralized functions for making API calls.
+    -> Decouple Business Logic: Keep the service layer separate from UI logic for better maintainability.
+    -> Handle API Requests: Focus on making HTTP requests, such as GET, POST, etc., and processing responses.
+
+# How They Work Together:
+
+    . Services are for reusable logic (e.g., API calls).
+    . Actions use these services to handle user-triggered logic and return processed data to the UI.

@@ -12,6 +12,6 @@ const DeleteComponent = ({CustomerId}) => {
       </button>
     </div>
   );
-};
+};   
 
 export default DeleteComponent;
